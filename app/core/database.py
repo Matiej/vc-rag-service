@@ -2,11 +2,13 @@ from typing import Any, Generator
 
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, Session
-from app.core.config import settings
+
+from app.core.config import get_settings
 
 engine = create_engine(
-    settings.database_url,
+    get_settings().database_url,
     pool_pre_ping=True,
+    pool_size=get_settings().pool_size,
 )
 
 SessionLocal = sessionmaker(

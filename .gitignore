@@ -23,3 +23,6 @@ docker-data/
 
 .vscode/
 .idea/
+
+/notices
+notices

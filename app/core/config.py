@@ -1,5 +1,7 @@
 import os
+
 from pydantic_settings import BaseSettings, SettingsConfigDict
+from functools import lru_cache
 
 
 class Settings(BaseSettings):
@@ -10,5 +12,9 @@ class Settings(BaseSettings):
 
     app_env: str = "local"
     database_url: str
+    pool_size: int = 10
 
-settings = Settings()
+
+@lru_cache
+def get_settings() -> Settings:
+    return Settings()
