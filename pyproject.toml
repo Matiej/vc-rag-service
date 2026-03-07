@@ -7,18 +7,18 @@ requires-python = ">=3.12"
 dependencies = [
     # Framework webowy — odpowiednik Spring Web + @RestController
     "fastapi[standard]>=0.115.0",
-
     # Serwer ASGI — odpowiednik embedded Tomcat w Spring Boot
     "uvicorn[standard]>=0.30.0",
-
     # Konfiguracja z .env — odpowiednik application.yml / @ConfigurationProperties
     "pydantic-settings>=2.0.0",
-
     # walidacja danych, DTOsy, odpowiednik Bean Validation
     "pydantic>=2.0.0",
-
     # biblioteka do manipulowania obrazami jpg/png odpowiednik ImageIO / BufferedImage z Javy. Uzyta bedzie do wczytania miniaturki 640px przed przekazaniem do CLIP:
     "Pillow>=10.0.0",
+    # sql data base orm, something like hibernate
+    "sqlalchemy>=2.0.0",
+    #
+    "psycopg[binary]>=3.1.0",
 ]
 
 [project.optional-dependencies]

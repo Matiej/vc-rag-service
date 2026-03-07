@@ -1,0 +1,28 @@
+# environment
+.env
+.env.*
+!.env.example
+
+# Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Virtual environment
+venv/
+.venv/
+env/
+
+.pytest_cache/
+.coverage
+htmlcov/
+
+*.log
+docker-data/
+
+.vscode/
+.idea/
+
+/notices
+notices
