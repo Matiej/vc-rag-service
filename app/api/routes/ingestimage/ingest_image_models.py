@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from pydantic import BaseModel
 
 
@@ -14,7 +16,7 @@ class IngestImageRequest(BaseModel):
     external_photo_id: str
     file_storage_uri: str
     image_hash: str
-    taken_at: str
+    taken_at: datetime
 
 
 class IngestImagesRequest(BaseModel):

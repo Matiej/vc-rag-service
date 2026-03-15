@@ -23,6 +23,7 @@ class ImageIngestService:
                 image_hash=image.image_hash,
                 embedding_model="clip-vit-b32",  # Takie from config file
                 vector_status="PENDING",
+                taken_at=image.taken_at,
                 meta_data={}
             )
             saved_image = self.image_repository.save(image_index)

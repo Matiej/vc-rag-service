@@ -73,6 +73,10 @@ class ImageIndex(Base):
         back_populates="image",
         uselist=False
     )
+    taken_at: Mapped[datetime] = mapped_column(
+        DateTime,
+        nullable=False
+    )
     created_at: Mapped[datetime] = mapped_column(
         DateTime,
         default=lambda: datetime.now(UTC),
