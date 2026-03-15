@@ -18,4 +18,4 @@ class IngestImageRequest(BaseModel):
 
 
 class IngestImagesRequest(BaseModel):
-    ingest_images: List[IngestImageRequest]
+    ingest_images: list[IngestImageRequest]

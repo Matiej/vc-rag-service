@@ -6,7 +6,7 @@ from app.api.routes.health.health_routes import router as health_router
 from app.api.routes.ingestimage.ingest_image_routes import router as ingest_image_router
 from app.core.database import engine
 from app.exceptions import ImageAlreadyExistsError
-from app.repository.entities import Base, ImageIndex, RecognitionState, RecognitionCandidate, SimilarityMatch
+from app.repository.entities import Base
 
 app = FastAPI()
 
