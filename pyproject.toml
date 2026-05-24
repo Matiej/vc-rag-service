@@ -1,5 +1,5 @@
 [project]
-name = "git init"
+name = "vc-rag-service"
 version = "0.1.0"
 description = "Vehicle image embedding microservice"
 requires-python = ">=3.12"
@@ -37,6 +37,10 @@ dev = [
     "pytest-asyncio>=0.23.0"
 ]
 
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["app*"]
+
 [build-system]
 requires = ["setuptools>=68.0"]
-build-backend = "setuptools.backends.legacy:build"
+build-backend = "setuptools.build_meta"
