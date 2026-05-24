@@ -19,6 +19,14 @@ dependencies = [
     "sqlalchemy>=2.0.0",
     #
     "psycopg[binary]>=3.1.0",
+    # pgvector Python driver — enables vector(512) column type in SQLAlchemy and cosine similarity queries
+    "pgvector>=0.3.0",
+    # HuggingFace Transformers — CLIP model for image and text embeddings
+    "transformers>=4.40.0",
+    # PyTorch CPU backend required by transformers (no GPU needed for nightly batch processing)
+    "torch>=2.0.0",
+    # Background job scheduler — equivalent of @Scheduled in Spring Boot
+    "apscheduler>=3.10.0",
 ]
 
 [project.optional-dependencies]
