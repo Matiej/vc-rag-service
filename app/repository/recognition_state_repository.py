@@ -11,3 +11,10 @@ class RecognitionStateRepository:
         self.session.add(state)
         self.session.flush()
         return state
+
+    def find_by_image_index_id(self, image_index_id: int) -> RecognitionState | None:
+        return (
+            self.session.query(RecognitionState)
+            .filter(RecognitionState.image_index_id == image_index_id)
+            .first()
+        )

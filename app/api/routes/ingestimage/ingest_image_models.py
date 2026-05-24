@@ -17,6 +17,7 @@ class IngestImageRequest(BaseModel):
     file_storage_uri: str
     image_hash: str
     taken_at: datetime
+    meta_data: dict = {}
 
 
 class IngestImagesRequest(BaseModel):

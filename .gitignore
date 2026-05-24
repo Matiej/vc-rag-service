@@ -26,3 +26,9 @@ docker-data/
 
 /notices
 notices
+/notices/
+vc_rag_service.egg-info/requires.txt
+vc_rag_service.egg-info/dependency_links.txt
+vc_rag_service.egg-info/PKG-INFO
+vc_rag_service.egg-info/SOURCES.txt
+vc_rag_service.egg-info/top_level.txt

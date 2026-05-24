@@ -1,6 +1,7 @@
 from datetime import datetime, UTC
 
-from sqlalchemy import Integer, String, DateTime, UniqueConstraint, Text, ForeignKey, JSON
+from pgvector.sqlalchemy import Vector
+from sqlalchemy import Integer, String, DateTime, UniqueConstraint, Text, ForeignKey
 from sqlalchemy.dialects.postgresql import JSONB
 from sqlalchemy.orm import DeclarativeBase, Mapped, relationship, mapped_column
 
@@ -59,6 +60,11 @@ class ImageIndex(Base):
         JSONB,
         nullable=False,
         comment="Meta data for RAG image index. MODEL, BRAND, TYPE, YEAR, COLOR"
+    )
+    embedding_vector: Mapped[list[float] | None] = mapped_column(
+        Vector(512),
+        nullable=True,
+        comment="CLIP embedding vector (512 dim). Null until background job processes the image (PENDING → VECTORIZED)"
     )
     recognition_candidates: Mapped[list[RecognitionCandidate]] = relationship(
         "RecognitionCandidate",
@@ -212,6 +218,11 @@ class RecognitionCandidate(Base):
         nullable=False,
         default=False,
         comment="Indicates if this candidate was selected as final recognition result"
+    )
+    human_edited: Mapped[bool] = mapped_column(
+        nullable=False,
+        default=False,
+        comment="True if the user manually edited the candidate data after it was proposed by similarity or external LLM"
     )
     image: Mapped[ImageIndex] = relationship(
         "ImageIndex",
