@@ -22,6 +22,9 @@ class Settings(BaseSettings):
     #   "openai/clip-vit-large-patch14"  — 768 dim, ~1.7GB RAM, better detail recognition
     #   "google/siglip-base-patch16-224" — 768 dim, newer architecture, stronger semantic quality
     embedding_model: str = "openai/clip-vit-base-patch32"
+    # How often the vectorization background job runs (in seconds).
+    # The job picks up all PENDING images and runs the full pipeline: embed → similarity → candidates.
+    vectorize_job_interval_seconds: int = 60
 
 
 @lru_cache
