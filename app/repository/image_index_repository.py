@@ -1,4 +1,3 @@
-from pgvector.sqlalchemy import cosine_distance
 from sqlalchemy.orm import Session
 
 from app.repository.entities import ImageIndex
@@ -58,7 +57,7 @@ class ImageIndexRepository:
         A score of 1.0 means identical vectors (same image found in the verified knowledge base).
         """
         from app.repository.entities import RecognitionState
-        distance = cosine_distance(ImageIndex.embedding_vector, vector)
+        distance = ImageIndex.embedding_vector.cosine_distance(vector)
         rows = (
             self.session.query(ImageIndex, (1 - distance).label("similarity"))
             .join(RecognitionState, RecognitionState.image_index_id == ImageIndex.id)
